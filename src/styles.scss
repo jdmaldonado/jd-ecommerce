@@ -1,1 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
+@charset "utf-8";
+
+// Import a Google Font
+@import url('https://fonts.googleapis.com/css?family=Nunito:400,700');
+
+// Theme colors
+@import "./scss/theme.scss";
+
+$primary: $purple;
+$link: $blue-dark;
+$family-sans-serif: "Nunito",
+sans-serif;
+$family-primary:$family-sans-serif;
+
+// Custom configurations
+// $body-background-color: $beige-light;
+
+@import "../node_modules/bulma/bulma.sass";
