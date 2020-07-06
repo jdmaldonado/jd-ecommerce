@@ -6,7 +6,6 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class CategoryPipe implements PipeTransform {
 
   transform(value: string, ...args: any[]): string {
-    console.log(`args`, args); 
     if (args?.length) {
       const options = {
         category_1: '#731DD8',

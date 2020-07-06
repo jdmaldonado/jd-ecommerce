@@ -1,6 +1,6 @@
 import { createAction, props } from '@ngrx/store';
 import { IProduct } from '../../models/product.model';
-import { IProductAdded } from './shopping-cart.reducers';
+import { ICartProduct } from 'src/app/models/cart-product.model';
 
 
 export const loadShoppingCart = createAction(
@@ -9,7 +9,7 @@ export const loadShoppingCart = createAction(
 
 export const loadShoppingCartSuccess = createAction(
   '[Shopping Cart] Load Shopping Cart Success',
-  props<{ products: IProductAdded[] }>()
+  props<{ products: ICartProduct[] }>()
 );
 
 export const loadShoppingCartFails = createAction(
@@ -23,8 +23,8 @@ export const addProduct = createAction(
 );
 
 export const addProductSuccess = createAction(
-  '[Shopping Cart] Add Product',
-  props<{ product: IProduct }>()
+  '[Shopping Cart] Add Product Success',
+  props<{ product: ICartProduct }>()
 );
 
 export const addProductFails = createAction(
@@ -34,11 +34,12 @@ export const addProductFails = createAction(
 
 export const removeProduct = createAction(
   '[Shopping Cart] Remove Product',
-  props<{ product: IProduct }>()
+  props<{ productId: string }>()
 );
 
 export const removeProductSuccess = createAction(
   '[Shopping Cart] Remove Product Success',
+  props<{ product: ICartProduct }>()
 );
 
 export const removeProductFails = createAction(

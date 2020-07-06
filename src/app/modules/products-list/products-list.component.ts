@@ -32,12 +32,9 @@ export class ProductsListComponent implements OnInit {
     this.productsStore.dispatch(loadProducts());
   }
 
-  // async getProducts(): Promise<void> {
-  //   this.products = await this.productService.getProducts();
-  // }
-
-  // addProductToCart(product: IProduct): void {
-  //   this.store.dispatch(addProduct({ product }))
-  // }
+  addProductToCart(product: IProduct): void {
+    console.log(`'AddProduct'`, 'AddProduct'); 
+    this.shoppingCartStore.dispatch(addProduct({ product }))
+  }
 
 }

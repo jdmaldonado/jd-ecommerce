@@ -8,6 +8,7 @@ import { ShoppingCartStoreModule } from '../../store/shopping-cart/shopping-cart
 import { ProductsStoreModule } from '../../store/products/products-store.module';
 /** Shared Modules */
 import { PipesModule } from '../../pipes/pipes.module';
+import { ShoppingCartModule } from '../../modules/shopping-cart/shopping-cart.module';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PipesModule } from '../../pipes/pipes.module';
     ProductsListRoutingModule,
     /** Shared Modules */
     PipesModule,
+    ShoppingCartModule,
     /** Store */
     ShoppingCartStoreModule,
     ProductsStoreModule,

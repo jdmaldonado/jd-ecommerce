@@ -1,0 +1,47 @@
+.button-fixed-rb {
+  border-radius: 50%;
+  position: fixed;
+  bottom: 1em;
+  right: 1em;
+}
+
+.sidepanel {
+  width: 0;
+  position: fixed;
+  z-index: 30;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  background-color: #FFFFFF;
+  overflow-x: hidden;
+  transition: 0.5s;
+}
+
+.sidepanel.open {
+  width: 500px !important;
+  padding: 3em 1.5em;
+}
+
+.sidepanel.closed {
+  width: 0 !important;
+  padding: 0;
+}
+
+.sidepanel .closebtn {
+  position: absolute;
+  top: 0.6em;
+  left: 0.6em;
+  font-size: 36px;
+}
+
+.cart-product {
+  padding-top: 2em;
+  padding-left: 2em;
+}
+
+.price-container {
+  width: 130px;
+  text-align: right;
+  vertical-align: middle;
+  padding-top: 0.6em;
+}

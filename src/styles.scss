@@ -17,3 +17,7 @@ $family-primary:$family-sans-serif;
 // $body-background-color: $beige-light;
 
 @import "../node_modules/bulma/bulma.sass";
+
+.has-navbar-fixed-top {
+  padding-top: 3.25rem;
+}

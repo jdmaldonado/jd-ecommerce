@@ -23,29 +23,14 @@
             {{product.description}}
           </div>
         </div>
+        <button class="button is-primary is-inverted add-cart-button" (click)="addProductToCart(product)">
+          <span class="icon is-small">
+            <i class="material-icons">add_shopping_cart</i>
+          </span>
+        </button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container is-fluid">
-  <h1 class="title"></h1>
-
-  <nav class="panel">
-    <p class="panel-heading">
-      Carrito de Compras
-    </p>
-    <a class="panel-block" *ngFor="let addedProduct of (shoppingCart$ | async).products ; let i=index">
-      <span class="panel-icon">
-        <i class="fas fa-code-branch" aria-hidden="true"></i>
-      </span>
-      {{addedProduct.product.name}}
-    </a>
-    <div class="panel-block">
-      <button class="button is-link is-outlined is-fullwidth">
-        Reset all filters
-      </button>
-    </div>
-  </nav>
-
-</div>
+<app-shopping-cart></app-shopping-cart>
