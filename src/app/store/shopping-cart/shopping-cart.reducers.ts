@@ -92,6 +92,17 @@ const _shoppingCartReducer = createReducer(shoppingCartInitialState,
     loading: false,
     error
   })),
+  on(actions.resetCart, (state) => ({
+    ...state,
+    loading: true,
+    error: null
+  })),
+  on(actions.resetCartSuccess, (state) => (shoppingCartInitialState)),
+  on(actions.resetCartFails, (state, error) => ({
+    ...state,
+    loading: false,
+    error
+  })),
 );
 
 export function shoppingCartReducer(state, action: Action): IShoppingCartState {

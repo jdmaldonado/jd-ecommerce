@@ -60,9 +60,9 @@
           </div>
         </article>
       </div>
-      <div class="panel-block">
-        <button class="button is-link is-outlined is-fullwidth">
-          Reset all filters
+      <div class="panel-block" *ngIf="(shoppingCart$ | async).products?.length > 0">
+        <button class="button is-link is-outlined is-fullwidth" (click)="cleanCart()">
+          Clear Cart
         </button>
       </div>
     </nav>

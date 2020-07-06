@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 /** Store */
 import { AppStateShoppingCart, SHOPPING_CART, IShoppingCartState } from 'src/app/store/shopping-cart/shopping-cart.reducers';
-import { addProduct, removeProduct, loadShoppingCart } from 'src/app/store/shopping-cart/shopping-cart.actions';
+import { addProduct, removeProduct, loadShoppingCart, resetCart } from 'src/app/store/shopping-cart/shopping-cart.actions';
 import { ICartProduct } from 'src/app/models/cart-product.model';
 
 @Component({
@@ -47,6 +47,10 @@ export class ShoppingCartComponent implements OnInit {
   remove(cartProduct: ICartProduct): void {
     const { product } = cartProduct;
     this.shoppingCartStore.dispatch(removeProduct({ productId: product._id }))
+  }
+
+  cleanCart(): void {
+    this.shoppingCartStore.dispatch(resetCart());
   }
 
 }

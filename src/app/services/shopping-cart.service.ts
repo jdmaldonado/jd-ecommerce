@@ -52,4 +52,16 @@ export class ShoppingCartService {
 
     return this.http.delete<APIResponse>(`${api.url}/shopping-cart/${productId}`, httpOptions);
   }
+
+  resetCart(): Observable<APIResponse> {
+    const { api } = environment;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${api.token}`
+      })
+    };
+
+    return this.http.delete<APIResponse>(`${api.url}/shopping-cart`, httpOptions);
+  }
 }

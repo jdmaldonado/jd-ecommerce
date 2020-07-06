@@ -46,3 +46,16 @@ export const removeProductFails = createAction(
   '[Shopping Cart] Remove Product ** Error **',
   props<{ error: any }>()
 );
+
+export const resetCart = createAction(
+  '[Shopping Cart] Reset Cart'
+);
+
+export const resetCartSuccess = createAction(
+  '[Shopping Cart] Reset Cart Success'
+);
+
+export const resetCartFails = createAction(
+  '[Shopping Cart] Reset Cart ** Error **',
+  props<{ error: any }>()
+);

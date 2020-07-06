@@ -56,5 +56,19 @@ export class ShoppingCartEffects {
       )
   );
 
+  resetCart$ = createEffect(
+    () => this.actions$
+      .pipe(
+        ofType(actions.resetCart),
+        switchMap(
+          () => this.shoppingCartService.resetCart()
+            .pipe(
+              map(({ data }) => actions.resetCartSuccess()),
+              catchError((error) => of(actions.resetCartFails(error)))
+            )
+        )
+      )
+  );
+
 
 }
