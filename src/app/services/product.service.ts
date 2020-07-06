@@ -1,31 +1,27 @@
 import { Injectable } from '@angular/core';
-import { IProduct } from 'src/app/models/product';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { APIResponse } from '../models/api.model';
+import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor() { }
+  constructor(
+    private http: HttpClient,
+  ) { }
 
-  private getRamdomCategory() {
-    const categories = ['category 1', 'category 2', 'category 3', 'category 4'];
-    const index = Math.floor(Math.random() * 0) + categories.length - 1;
-    return categories[index];
-  }
+  getAll(): Observable<APIResponse> {
+    const { api } = environment;
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${api.token}`
+      })
+    };
 
-  public getProducts(): Promise<IProduct[]> {
-    let products: IProduct[] = Array.from(Array(10), (_, i) => ({
-      id: `product_${i}`,
-      name: `product name ${i}`,
-      description: `product description ${i}`,
-      price: Math.floor(Math.random() * 100000) + 10000,
-      category: this.getRamdomCategory()
-    }))
-
-
-    return new Promise((resolve, reject) => {
-      resolve(products);
-    });
+    return this.http.get<APIResponse>(`${api.url}/products`, httpOptions);
   }
 }

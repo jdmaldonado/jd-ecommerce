@@ -3,14 +3,22 @@
   <div>Productos</div>
 
   <div class="columns is-multiline">
-    <div class="column" *ngFor="let product of products; let i=index">
-      <div class="card" (click)="addProductToCart(product)">
-        <header class="card-header">
-          <p class="card-header-title">
-            {{product.name}}
-          </p>
-        </header>
+    <div class="column is-3" *ngFor="let product of (productsState$ | async ).products; let i=index">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image is-4by3">
+            <img *ngIf="product.image" [src]="product.image" alt="{{product.name}} Image">
+          </figure>
+        </div>
         <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">{{product.name}}</p>
+              <span class="tag is-primary"
+                [ngStyle]="{'background-color': product.category | category : 'color' }">{{product.category | category}}</span>
+            </div>
+          </div>
+
           <div class="content">
             {{product.description}}
           </div>
@@ -21,7 +29,23 @@
 </div>
 
 <div class="container is-fluid">
-  <h1 class="title">Carrito de Compras</h1>
-  
+  <h1 class="title"></h1>
+
+  <nav class="panel">
+    <p class="panel-heading">
+      Carrito de Compras
+    </p>
+    <a class="panel-block" *ngFor="let addedProduct of (shoppingCart$ | async).products ; let i=index">
+      <span class="panel-icon">
+        <i class="fas fa-code-branch" aria-hidden="true"></i>
+      </span>
+      {{addedProduct.product.name}}
+    </a>
+    <div class="panel-block">
+      <button class="button is-link is-outlined is-fullwidth">
+        Reset all filters
+      </button>
+    </div>
+  </nav>
 
 </div>
